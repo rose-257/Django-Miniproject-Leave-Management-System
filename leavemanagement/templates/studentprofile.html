@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            background-color: #005b75; 
+            color: #fff;
+            border: 1px solid #fff;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: rgb(40, 40, 60); 
+            color: white;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        p{
+            font-size: 20px;
+            font-weight: bold;
+            color: #005b75; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome {{ name }}</h1>
+        <p>Name: {{ cr.name }}</p>
+        <p>Age: {{ cr.age }}</p>
+        <p>Email: {{ cr.email }}</p>
+        <p>Department: {{ cr.department }}</p>
+        <p>Gender: {{ cr.gender }}</p>
+        <a href="{% url 'studentupdate' name=cr.name %}" class="btn">Edit Profile</a>
+        <a href="/studentleaverequest/" class="btn">Leave Request</a>
+        <a href="{% url 'approvalstatus'  %}" class="btn">Approval Status</a>
+        <a href="/logoutuser/" class="btn">Logout</a>
+    </div>
+</body>
+</html>

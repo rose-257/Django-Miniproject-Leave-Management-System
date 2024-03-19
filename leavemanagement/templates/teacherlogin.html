@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #cfe2f3;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #aed9e0;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 30px; 
+        }
+
+        .login-form {
+            background-color: #c2e7f5; 
+            border-radius: 10px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #6db3bf;
+            border-color: #6db3bf;
+        }
+
+        .btn-primary:hover {
+            background-color: #539ba4; 
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/Teacherlog/" method="POST" class="login-form">
+            {% csrf_token %}
+            <h2 class="text-center mb-4">Teacher Login</h2>
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <a href="/TeacherReg/" class="btn btn-primary btn-block">Register</a>
+            <a href="/login/" class="btn btn-primary btn-block">Back</a>
+            <div class="error-message mt-3">
+                {{ ce }}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
